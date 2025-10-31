@@ -3,7 +3,7 @@
 --
 -- See the kickstart.nvim README for more information
 return {
-  { "ciubix8513/vim-colorschemes" },
+  { "ciubix8513/vim-colorschemes", branch = "new-cfg" },
   {
     "nvim-lualine/lualine.nvim",
     dependencies = { 'nvim-tree/nvim-web-devicons' },
@@ -16,6 +16,29 @@ return {
   {
     "akinsho/bufferline.nvim",
     config = require "plugins.bufferline".setup,
-  }
+  },
+  "lambdalisue/suda.vim",
+  "wakatime/vim-wakatime",
+  "norcalli/nvim-colorizer.lua",
+  {
+    "danymat/neogen",
+    config = true,
+  },
+  {
+    "uga-rosa/translate.nvim",
+    config = true,
+  },
+  {
+    "akinsho/toggleterm.nvim",
+    config = function()
+      require("toggleterm").setup({
+        open_mapping = "<C-\\>",
+        direction = "float",
+        float_opts = {
+          border = "rounded",
+        }
+      })
+    end
 
+  },
 }
