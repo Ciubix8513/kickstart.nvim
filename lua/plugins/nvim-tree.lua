@@ -280,7 +280,7 @@ function M.setup()
   }
 
   require("nvim-tree").setup(conf)
-  vim.keymap.set("n", "<Leader>e", ":NvimTreeToggle<CR>")
+  vim.keymap.set("n", "<Leader>e", ":NvimTreeToggle<CR>", { desc = "Toggle explorer"})
 end
 
 return M

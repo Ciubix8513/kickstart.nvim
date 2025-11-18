@@ -21,11 +21,11 @@ function M.setup()
 
   require("bufferline").setup(conf)
 
-  vim.keymap.set("n", "<Leader>bb",":BufferLineCyclePrev<CR>")
-  vim.keymap.set("n", "<Leader>bn",":BufferLineCycleNext<CR>")
-  vim.keymap.set("n", "<Leader>bh",":BufferLineCloseLeft<CR>")
-  vim.keymap.set("n", "<Leader>bl",":BufferLineCloseRight<CR>")
-  vim.keymap.set("n", "<Leader>bj",":BufferLinePick<CR>")
+  vim.keymap.set("n", "<Leader>bb", ":BufferLineCyclePrev<CR>", { desc = "Previous" })
+  vim.keymap.set("n", "<Leader>bn", ":BufferLineCycleNext<CR>", { desc = "Next" })
+  vim.keymap.set("n", "<Leader>bh", ":BufferLineCloseLeft<CR>", { desc = "Close all to the left" })
+  vim.keymap.set("n", "<Leader>bl", ":BufferLineCloseRight<CR>", { desc = "Close all to the right" })
+  vim.keymap.set("n", "<Leader>bj", ":BufferLinePick<CR>", { desc = "Jump" })
 end
 
 return M

@@ -62,6 +62,8 @@ local function set_settings()
   --Remove splash
   vim.opt.shortmess:append("I")
 
+  vim.lsp.inlay_hint.enable()
+
 end
 
 
