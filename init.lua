@@ -89,10 +89,8 @@ vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
 -- Diagnostic keymaps
 vim.keymap.set('n', '<leader>lq', vim.diagnostic.setloclist, { desc = 'quickfix list' })
-vim.keymap.set('n', '<leader>lj', ":lua vim.diagnostic.jump({ count = 1, float = true  })<CR>",
-  { desc = 'Next diagnostic' })
-vim.keymap.set('n', '<leader>lk', ":lua vim.diagnostic.jump({ count = -1, float = true })<CR>",
-  { desc = 'Prev diagnostic' })
+vim.keymap.set('n', '<leader>lj', ':lua vim.diagnostic.jump({ count = 1, float = true  })<CR>', { desc = 'Next diagnostic' })
+vim.keymap.set('n', '<leader>lk', ':lua vim.diagnostic.jump({ count = -1, float = true })<CR>', { desc = 'Prev diagnostic' })
 
 -- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
 -- for people to discover. Otherwise, you normally need to press <C-\><C-n>, which
@@ -216,7 +214,7 @@ require('lazy').setup({
   -- Then, because we use the `opts` key (recommended), the configuration runs
   -- after the plugin has been loaded as `require(MODULE).setup(opts)`.
 
-  {                     -- Useful plugin to show you pending keybinds.
+  { -- Useful plugin to show you pending keybinds.
     'folke/which-key.nvim',
     event = 'VimEnter', -- Sets the loading event to 'VimEnter'
     opts = {
@@ -261,7 +259,7 @@ require('lazy').setup({
       },
 
       win = {
-        border = "rounded"
+        border = 'rounded',
       },
 
       -- Document existing key chains
@@ -295,7 +293,7 @@ require('lazy').setup({
       { 'nvim-telescope/telescope-ui-select.nvim' },
 
       -- Useful for getting pretty icons, but requires a Nerd Font.
-      { 'nvim-tree/nvim-web-devicons',            enabled = vim.g.have_nerd_font },
+      { 'nvim-tree/nvim-web-devicons', enabled = vim.g.have_nerd_font },
     },
     config = function()
       -- Telescope is a fuzzy finder that comes with a lot of different things that
@@ -329,6 +327,14 @@ require('lazy').setup({
         --   },
         -- },
         -- pickers = {}
+        defaults = {
+          file_ignore_patterns = {
+            '%.po',
+            '%.svg',
+            'target/*',
+            '.git/*',
+          },
+        },
         extensions = {
           ['ui-select'] = {
             require('telescope.themes').get_dropdown(),
@@ -403,7 +409,7 @@ require('lazy').setup({
       'WhoIsSethDaniel/mason-tool-installer.nvim',
 
       -- Useful status updates for LSP.
-      { 'j-hui/fidget.nvim',    opts = {} },
+      { 'j-hui/fidget.nvim', opts = {} },
 
       -- Allows extra capabilities provided by blink.cmp
       'saghen/blink.cmp',
@@ -634,8 +640,8 @@ require('lazy').setup({
 
         automatic_enable = {
           exclude = {
-            "rust_analyzer"
-          }
+            'rust_analyzer',
+          },
         },
         handlers = {
           function(server_name)
@@ -770,7 +776,7 @@ require('lazy').setup({
       },
 
       sources = {
-        default = { 'lsp', 'path', 'snippets', 'lazydev' },
+        default = { 'lsp', 'path', 'snippets', 'lazydev', 'buffer' },
         providers = {
           lazydev = { module = 'lazydev.integrations.blink', score_offset = 100 },
         },
@@ -812,7 +818,7 @@ require('lazy').setup({
       -- - sr)'  - [S]urround [R]eplace [)] [']
       require('mini.surround').setup()
 
-      require("mini.move").setup()
+      require('mini.move').setup()
     end,
   },
   { -- Highlight, edit, and navigate code
@@ -859,5 +865,5 @@ require('lazy').setup({
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
 
-require("settings").set_settings()
-require("keybinds").add_keybinds()
+require('settings').set_settings()
+require('keybinds').add_keybinds()

@@ -3,50 +3,49 @@
 --
 -- See the kickstart.nvim README for more information
 return {
-  { "ciubix8513/vim-colorschemes" },
+  { 'ciubix8513/vim-colorschemes' },
   {
-    "nvim-lualine/lualine.nvim",
+    'nvim-lualine/lualine.nvim',
     dependencies = { 'nvim-tree/nvim-web-devicons' },
-    config = require "plugins.lualine".setup,
+    config = require('plugins.lualine').setup,
   },
   {
-    "nvim-tree/nvim-tree.lua",
-    config = require "plugins.nvim-tree".setup,
+    'nvim-tree/nvim-tree.lua',
+    config = require('plugins.nvim-tree').setup,
   },
   {
-    "akinsho/bufferline.nvim",
-    config = require "plugins.bufferline".setup,
+    'akinsho/bufferline.nvim',
+    config = require('plugins.bufferline').setup,
   },
-  "lambdalisue/suda.vim",
-  "wakatime/vim-wakatime",
-  "norcalli/nvim-colorizer.lua",
+  'lambdalisue/suda.vim',
+  'wakatime/vim-wakatime',
+  'norcalli/nvim-colorizer.lua',
   {
-    "danymat/neogen",
+    'danymat/neogen',
     config = true,
   },
   {
-    "uga-rosa/translate.nvim",
+    'uga-rosa/translate.nvim',
     config = true,
   },
   {
-    "akinsho/toggleterm.nvim",
+    'akinsho/toggleterm.nvim',
     config = function()
-      require("toggleterm").setup({
-        open_mapping = "<C-\\>",
-        direction = "float",
+      require('toggleterm').setup {
+        open_mapping = '<C-\\>',
+        direction = 'float',
         float_opts = {
-          border = "rounded",
-        }
-      })
-    end
-
+          border = 'rounded',
+        },
+      }
+    end,
   },
   {
-    "numToStr/Comment.nvim",
-    config = require("plugins.comment").setup
+    'numToStr/Comment.nvim',
+    config = require('plugins.comment').setup,
   },
   {
-    "mrcjkb/rustaceanvim",
+    'mrcjkb/rustaceanvim',
     lazy = false,
     config = function()
       -- require("rustaceanvim").setup {
@@ -86,23 +85,43 @@ return {
         tools = {
           autosethints = true,
           inlay_hints = { show_parameter_hints = true },
-        }
+        },
       }
-    end
-  }, {
-  "chrisgrieser/nvim-lsp-endhints",
-  event = "LspAttach",
-  opts = {
-    icons = {
-      -- type = "󰜁 ",
-      type = "=> ",
-      parameter = "󰏪 ",
-      offspec = " ", -- hint kind not defined in official LSP spec
-      unknown = " ", -- hint kind is nil
+    end,
+  },
+  {
+    'chrisgrieser/nvim-lsp-endhints',
+    event = 'LspAttach',
+    opts = {
+      icons = {
+        -- type = "󰜁 ",
+        type = '=> ',
+        parameter = '󰏪 ',
+        offspec = ' ', -- hint kind not defined in official LSP spec
+        unknown = ' ', -- hint kind is nil
+      },
+      label = {
+        truncateAtChars = 10000,
+      },
     },
-    label = {
-      truncateAtChars = 10000,
-    }
-  }
-},
+  },
+
+  {
+    'andymass/vim-matchup',
+    ---@type matchup.Config
+    opts = {
+      treesitter = {
+        stopline = 500,
+        enabled = false,
+        -- disabled = true,
+      },
+      matchparen = {
+        enabled = 1,
+        -- deferred_show_delay
+        hi_background = 1,
+        -- hi_surround_always = 1,
+        -- offscreen = { method = 'popup', border = 'meow', fullwidth = 1, scrolloff = 1 },
+      },
+    },
+  },
 }
